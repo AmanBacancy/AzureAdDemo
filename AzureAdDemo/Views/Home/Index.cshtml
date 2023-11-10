@@ -1,0 +1,25 @@
+﻿@using System.Security.Principal
+@{
+    ViewData["Title"] = "Home Page";
+}
+@* @{
+    // Get the roles of the current user
+    var userRole = User.Claims.Where(c => c.Type == System.Security.Claims.ClaimTypes.Role).FirstOrDefault().Value;
+} *@
+@if (User.Identity.IsAuthenticated)
+{
+    <span>Hello @User.Identity.Name!</span>
+    @* @if (userRole != null)
+    {
+        <p>Your role: @userRole</p>
+    }
+    else
+    {
+        <p>You don't have any roles.</p>
+    } *@
+    @* @Html.ActionLink("Sign out","SignOut","Account", new { area = "MicrosoftIdentity"}, null) *@
+}
+@{
+    Html.RenderPartial("_signoutPartial");
+}
+

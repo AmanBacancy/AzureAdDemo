@@ -1,0 +1,31 @@
+﻿@model AzureAdDemo.Models.LoginModel
+
+<h1>
+    Login Here
+</h1>
+
+<form method="post" action="/Home/Login">
+    <table>
+        <tr>
+            <td>Username: </td>
+            <td><input type="text" name="Username" /></td>
+        </tr>
+        <tr>
+            <td>Password: </td>
+            <td><input type="password" name="Password" /></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" value="Login" /></td>
+        </tr>
+        <tr>
+            <td>or </td>
+            <td><button type="button" onclick="loginWithAzureAD()">Login with Azure AD</button></td>
+        </tr>
+    </table>
+</form>
+<script>
+    function loginWithAzureAD() {
+        window.location.href = '/Home/AzureADLogin';
+    }
+</script>
